@@ -6,12 +6,13 @@ import java.util.List;
 /**
  * Created by k.meissonnier on 22/06/2015.
  */
+@Entity
 @Table(name="Utilisateur")
 public class Utilisateur {
 
     @Id
     @Column(name = "ID")
-    public Long id;
+    public int id;
 
     @Column(name = "NOM")
     public String nom;
@@ -30,7 +31,7 @@ public class Utilisateur {
     public Date dateInscription;
 
 
-    public List<CentreInteret> listeCentreInteret;
+    //public List<CentreInteret> listeCentreInteret;
 
 
 }

@@ -20,8 +20,8 @@ VALUES
 ('Cubeddu','Robin','cubeddu.robin@email.com',1,DATE '2015-02-26'),
 ('Croin','Antoine','a.croin@email.com',1,DATE '2014-03-20'),
 ('Cribel','Maryne','m.cribel@email.com',2,DATE '2015-01-26'),
-('Rodrigues','Thomas','doob.meissonnier@email.com',3,DATE '2015-01-26'),
-('Frnx','Pauline','kevin.meissonnier@email.com',1,DATE '2015-01-26'),
+('Rodrigues','Thomas','doob@email.com',3,DATE '2015-01-26'),
+('Frnx','Pauline','pauline.frnx@email.com',1,DATE '2015-01-26'),
 ('Show','Arti','Arti.Show@email.com',1,DATE '2015-01-26')
 
 INSERT INTO CentreInteret_Utilisateur (FK_IdUtilisateur, FK_IdCentreInteret)
