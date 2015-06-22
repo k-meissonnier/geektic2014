@@ -1,0 +1,43 @@
+CREATE TABLE Civilite
+(
+Id INTEGER NOT NULL,
+Label VARCHAR (50) NOT NULL,
+PRIMARY KEY (Id)
+)
+
+CREATE TABLE Utilisateur
+(
+Id INTEGER IDENTITY NOT NULL,
+Nom VARCHAR(60) NOT NULL,
+Prenom VARCHAR(60) NOT NULL,
+Email VARCHAR(60) NOT NULL,
+FK_IdCivilite INTEGER NOT NULL,
+DateInscription DATE NOT NULL,
+FOREIGN KEY (FK_IdCivilite) REFERENCES Civilite(Id)
+)
+
+
+CREATE TABLE CentreInteret
+(
+Id INTEGER NOT NULL,
+Label VARCHAR (50) NOT NULL,
+PRIMARY KEY (Id)
+)
+
+CREATE TABLE CentreInteret_Utilisateur
+(
+Id INTEGER IDENTITY,
+FK_IdUtilisateur INT NOT NULL,
+FK_IdCentreInteret INT NOT NULL,
+FOREIGN KEY (FK_IdUtilisateur) REFERENCES Utilisateur(Id),
+FOREIGN KEY (FK_IdCentreInteret) REFERENCES CentreInteret(Id)
+)
+
+CREATE TABLE Match
+(
+Id INTEGER IDENTITY,
+FK_IdUtilisateur1 INTEGER NOT NULL,
+FK_IdUtilisateur2 INTEGER NOT NULL,
+FOREIGN KEY (FK_IdUtilisateur1) REFERENCES Utilisateur(Id),
+FOREIGN KEY (FK_IdUtilisateur2) REFERENCES Utilisateur(Id)
+)
