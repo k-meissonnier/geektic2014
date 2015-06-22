@@ -6,6 +6,10 @@ package com.ninja_squad.geektic.service;
  */
 public class HelloMessage {
     public String getMessage() {
-        return "Hello, Geek!";
+        /*EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("geektic");
+        EntityManager entity = entityManagerFactory.createEntityManager();
+        DaoCentreInteret dao = new DaoCentreInteret(entity);
+        CentreInteret centreInteret = dao.getById(2);*/
+        return "Hello, Geek! : ";
     }
 }
