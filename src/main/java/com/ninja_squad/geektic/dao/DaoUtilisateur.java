@@ -44,8 +44,10 @@ public class DaoUtilisateur {
         return (Utilisateur) query.getSingleResult();
     }
 
-    public List<Utilisateur> rechercheListeUtilisateur (int idCivilite, int idCentreInteret)
+    public List<Utilisateur> rechercheListeUtilisateur (CritereRechercheUtilisateur critere)
     {
+        int idCivilite = critere.idCivilite;
+        int idCentreInteret = critere.idCentreInteret;
         String requete = "SELECT u FROM CentreInteretUtilisateur ciu "
                 + "INNER JOIN ciu.utilisateur u "
                 + "INNER JOIN ciu.centreInteret ci "

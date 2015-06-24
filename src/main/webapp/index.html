@@ -3,11 +3,15 @@
 <html ng-app="geektic">
     <head>
         <title>Geektic</title>
+        <link rel="stylesheet" href="css/bootstrap.css" type="text/css"></link>
     </head>
     <body>
-        <h1>Geektic</h1>
-
-        <div ng-view></div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Geektic</div>
+            <div class="panel-body">
+                <div ng-view></div>
+            </div>
+        </div>
 
         <script src="/js/angular.js"></script>
         <script src="/js/angular-route.js"></script>

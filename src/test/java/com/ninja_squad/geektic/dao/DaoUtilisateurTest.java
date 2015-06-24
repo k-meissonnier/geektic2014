@@ -41,7 +41,10 @@ public class DaoUtilisateurTest extends BaseDaoTest {
 
     @Test
     public void testRechercheListeUtilisateur(){
-        List<Utilisateur> listeUtilisateur = dao.rechercheListeUtilisateur(1, 1);
+        CritereRechercheUtilisateur critereRechercheUtilisateur = new CritereRechercheUtilisateur();
+        critereRechercheUtilisateur.idCentreInteret = 1;
+        critereRechercheUtilisateur.idCivilite = 1;
+        List<Utilisateur> listeUtilisateur = dao.rechercheListeUtilisateur(critereRechercheUtilisateur);
         assertTrue(listeUtilisateur.size() > 0);
 
         for (Utilisateur u : listeUtilisateur)

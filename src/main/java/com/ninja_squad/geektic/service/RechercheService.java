@@ -2,6 +2,7 @@ package com.ninja_squad.geektic.service;
 
 import com.ninja_squad.geektic.CentreInteret;
 import com.ninja_squad.geektic.Utilisateur;
+import com.ninja_squad.geektic.dao.CritereRechercheUtilisateur;
 import com.ninja_squad.geektic.dao.DaoCentreInteret;
 import com.ninja_squad.geektic.dao.DaoUtilisateur;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,9 @@ public class RechercheService {
     @RequestMapping(value ="{idCentreInteret}/{idCivilite}", method = GET)
     public List<Utilisateur> getCentreInteret(@PathVariable("idCentreInteret") int idCentreInteret, @PathVariable("idCivilite") int idCivilite)
     {
-        return daoUtilisateur.rechercheListeUtilisateur(idCivilite,idCentreInteret);
+        CritereRechercheUtilisateur critereRechercheUtilisateur = new CritereRechercheUtilisateur();
+        critereRechercheUtilisateur.idCentreInteret = idCentreInteret;
+        critereRechercheUtilisateur.idCivilite = idCivilite;
+        return daoUtilisateur.rechercheListeUtilisateur(critereRechercheUtilisateur);
     }
 }
