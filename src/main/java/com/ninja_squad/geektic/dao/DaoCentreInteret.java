@@ -3,6 +3,7 @@ package com.ninja_squad.geektic.dao;
 import com.ninja_squad.geektic.CentreInteret;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
  */
 @Repository
 public class DaoCentreInteret {
-
+    @PersistenceContext
     private EntityManager entityManager;
 
     public DaoCentreInteret(EntityManager entityManager)

@@ -35,6 +35,8 @@ public class Utilisateur {
             inverseJoinColumns={@JoinColumn(name="FK_IdCentreInteret", referencedColumnName="ID")})
     public List<CentreInteret> listeCentreInteret;
 
+
+
 }
 
 

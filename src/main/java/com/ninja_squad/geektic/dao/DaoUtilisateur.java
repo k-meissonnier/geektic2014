@@ -6,6 +6,7 @@ import com.ninja_squad.geektic.Utilisateur;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
  */
 @Repository
 public class DaoUtilisateur {
-
+    @PersistenceContext
     private EntityManager entityManager;
 
     public DaoUtilisateur(EntityManager entityManager)
@@ -43,15 +44,16 @@ public class DaoUtilisateur {
         return (Utilisateur) query.getSingleResult();
     }
 
-    public List<Utilisateur> rechercheListeUtilisateur (int idCivilite, CentreInteret interet)
+    public List<Utilisateur> rechercheListeUtilisateur (int idCivilite, int idCentreInteret)
     {
         String requete = "SELECT u FROM CentreInteretUtilisateur ciu "
                 + "INNER JOIN ciu.utilisateur u "
                 + "INNER JOIN ciu.centreInteret ci "
-                + "WHERE ci.id = :idCentreInteret AND u.civilite = :idCivilite";
+                + "INNER JOIN u.civilite c "
+                + "WHERE ci.id = :idCentreInteret AND c.id = :idCivilite";
 
         Query query = entityManager.createQuery(requete);
-        query.setParameter("idCentreInteret", interet.id);
+        query.setParameter("idCentreInteret", idCentreInteret);
         query.setParameter("idCivilite", idCivilite);
         return query.getResultList();
     }

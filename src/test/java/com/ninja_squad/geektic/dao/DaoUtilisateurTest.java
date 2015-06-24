@@ -3,10 +3,14 @@ package com.ninja_squad.geektic.dao;
 import com.ninja_squad.dbsetup.DbSetup;
 import com.ninja_squad.dbsetup.Operations;
 import com.ninja_squad.dbsetup.operation.Operation;
+import com.ninja_squad.geektic.CentreInteret;
+import com.ninja_squad.geektic.Civilite;
 import com.ninja_squad.geektic.Utilisateur;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -33,5 +37,17 @@ public class DaoUtilisateurTest extends BaseDaoTest {
     public void testGetByEmail()  {
         Utilisateur utilisateur = dao.getByEmail("kevin.meissonnier@email.com");
         assertEquals(utilisateur.nom, "Meissonnier");
+    }
+
+    @Test
+    public void testRechercheListeUtilisateur(){
+        List<Utilisateur> listeUtilisateur = dao.rechercheListeUtilisateur(1, 1);
+        assertTrue(listeUtilisateur.size() > 0);
+
+        for (Utilisateur u : listeUtilisateur)
+        {
+            assertTrue(u.civilite.id == 1);
+        }
+
     }
 }

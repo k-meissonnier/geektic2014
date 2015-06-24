@@ -1,0 +1,24 @@
+<h2>Liste des utilisateurs</h2>
+<div>
+    <TABLE BORDER="1">
+        <CAPTION>Liste des utilisateurs</CAPTION>
+        <TR>
+            <TH> Nom </TH>
+            <TH> Prenom </TH>
+            <TH> Email </TH>
+            <TH> Civilite </TH>
+            <TH> Date inscription </TH>
+            <TH> Centre interet </TH>
+            <TH> VISITER PROFIL </TH>
+        </TR>
+        <TR ng-repeat="user in listeUtilisateur" value="{{user.id}}">
+            <TD> {{ user.nom }} </TD>
+            <TD> {{ user.prenom }} </TD>
+            <TD> {{ user.email }} </TD>
+            <TD> {{ user.civilite.label }} </TD>
+            <TD> {{ user.dateInscription }} </TD>
+            <TD> <li ng-repeat="centreInteret in user.listeCentreInteret"> {{ centreInteret.label }}</li> </TD>
+            <TD> <a href="#/ProfilUtilisateur">Cliquez ici</a> </TD>
+        </TR>
+    </TABLE>
+</div>

@@ -1,14 +1,17 @@
 <h2>Recherche</h2>
 
-<label>Homme/Fememe/Martien : </label>
+<label>Homme/Femme/Martien : </label>
 
 
 <form>
-    <input type="radio" name="sex" value="male" checked>Homme
+    <input type="radio" name="idCivilite" value="1" ng-model="idCivilite" checked>Homme
     <br>
-    <input type="radio" name="sex" value="female">Femme
+    <input type="radio" name="idCivilite" ng-model="idCivilite" value="2">Femme
     <br>
-    <input type="radio" name="sex" value="female">Martien
+    <input type="radio" name="idCivilite" ng-model="idCivilite" value="3">Martien
     <br>
-    <select ng-model="selected"></select>
+    <SELECT name="idCentreInteret" size="1" ng-model="idCentreInteret">
+        <OPTION ng-repeat="item in listeInteret" value="{{item.id}}">{{ item.label }}
+    </SELECT>
 </form>
+<a href = "#/resultat/{{idCentreInteret}}/{{idCivilite}}">Recherche</a>
