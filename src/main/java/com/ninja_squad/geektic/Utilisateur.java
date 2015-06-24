@@ -30,9 +30,10 @@ public class Utilisateur {
     @Column(name = "DATEINSCRIPTION")
     public Date dateInscription;
 
-
-    //public List<CentreInteret> listeCentreInteret;
-
+    @ManyToMany (fetch=FetchType.EAGER)
+    @JoinTable(name="CentreInteret_Utilisateur", joinColumns={@JoinColumn(name="FK_IdUtilisateur", referencedColumnName="ID")},
+            inverseJoinColumns={@JoinColumn(name="FK_IdCentreInteret", referencedColumnName="ID")})
+    public List<CentreInteret> listeCentreInteret;
 
 }
 

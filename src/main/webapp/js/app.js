@@ -5,3 +5,12 @@ app.controller('HelloCtrl', function($scope, $http) {
         $scope.helloMessage = helloMessage;
     });
 });
+
+
+app.config(['$routeProvider',
+    function($routeProvider) {
+        $routeProvider.
+            when('/recherche', {
+                templateUrl: 'recherche.html'
+            })
+    }]);
